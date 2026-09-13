@@ -1,0 +1,12 @@
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Windows shortcuts
+*.lnk
