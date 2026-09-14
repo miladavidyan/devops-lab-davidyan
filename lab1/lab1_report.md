@@ -8,6 +8,7 @@ Lab: Lab0
 Date of create: 13.09.2026  
 Date of finished: 
 # Лабораторная работа №1
+
 ## Основы работы с Docker
 
 ### Ход работы
@@ -18,97 +19,183 @@ Date of finished:
 
 ```powershell
 docker --version
-## Для проверки корректной работы Docker был запущен тестовый контейнер:
+```
+
+Для проверки корректной работы Docker был запущен тестовый контейнер:
+
+```powershell
 docker run hello-world
+```
 
-## В результате было получено сообщение:
+В результате было получено сообщение:
+
+```text
 Hello from Docker!
+```
 
-## Также были изучены базовые команды:
+Также были изучены базовые команды:
+
+```powershell
 docker images
 docker ps
 docker ps -a
+```
 
-# Работа с образом Ubuntu
-## Был скачан образ Ubuntu:
+## Работа с образом Ubuntu
+
+Был скачан образ Ubuntu:
+
+```powershell
 docker pull ubuntu:latest
+```
 
-## После этого был запущен интерактивный контейнер:
+После этого был запущен интерактивный контейнер:
+
+```powershell
 docker run -it ubuntu bash
+```
 
-## Внутри контейнера были обновлены списки пакетов:
+Внутри контейнера были обновлены списки пакетов:
+
+```bash
 apt update
-и установлен пакет curl:
+```
+
+Затем был установлен пакет `curl`:
+
+```bash
 apt install -y curl
+```
 
-## Установка была проверена командой:
+Установка была проверена командой:
+
+```bash
 curl --version
+```
 
-## После завершения работы был выполнен выход из контейнера:
+После завершения работы был выполнен выход из контейнера:
+
+```bash
 exit
+```
 
-# Запуск веб-сервера nginx
-## Был запущен контейнер nginx:
+## Запуск веб-сервера nginx
+
+Был запущен контейнер nginx:
+
+```powershell
 docker run -d -p 8080:80 --name web-server nginx:alpine
+```
 
-## Работа веб-сервера была проверена в браузере по адресу:
+Работа веб-сервера была проверена в браузере по адресу:
+
+```text
 http://localhost:8080
+```
 
 Также были просмотрены логи контейнера:
+
+```powershell
 docker logs web-server
+```
 
-## Для подключения к контейнеру была использована команда:
+Для подключения к контейнеру была использована команда:
+
+```powershell
 docker exec -it web-server sh
+```
 
-# Управление контейнерами
-## Были изучены команды для просмотра контейнеров:
+## Управление контейнерами
+
+Были изучены команды для просмотра контейнеров:
+
+```powershell
 docker ps
 docker ps -a
+```
 
-Контейнер web-server был остановлен:
+Контейнер `web-server` был остановлен:
+
+```powershell
 docker stop web-server
+```
 
-После этого снова запущен:
+После этого контейнер был снова запущен:
+
+```powershell
 docker start web-server
+```
 
 Затем контейнер был остановлен и удалён:
+
+```powershell
 docker stop web-server
 docker rm web-server
+```
 
 Образ nginx также был удалён:
+
+```powershell
 docker rmi nginx:alpine
+```
 
-# Работа с Docker volumes
-## Был создан том:
+## Работа с Docker volumes
+
+Был создан том:
+
+```powershell
 docker volume create my-volume
+```
 
-## Контейнер был запущен с подключённым томом:
+Контейнер был запущен с подключённым томом:
+
+```powershell
 docker run -it --name volume-test -d -v my-volume:/data ubuntu bash
+```
 
-## В томе был создан файл:
+В томе был создан файл:
+
+```powershell
 docker exec volume-test sh -c "echo 'Hello from volume' > /data/test.txt"
+```
 
-## Содержимое файла было проверено:
+Содержимое файла было проверено:
+
+```powershell
 docker exec volume-test cat /data/test.txt
+```
 
-## После этого контейнер был удалён, а новый контейнер был создан с тем же томом:
+После этого контейнер был удалён, а новый контейнер был создан с тем же томом:
+
+```powershell
 docker stop volume-test
 docker rm volume-test
 docker run -d --name volume-test-2 -v my-volume:/data ubuntu sleep infinity
+```
 
-## Содержимое файла было проверено повторно:
+Содержимое файла было проверено повторно:
+
+```powershell
 docker exec volume-test-2 cat /data/test.txt
+```
 
-## В результате снова было получено:
+В результате снова было получено:
+
+```text
 Hello from volume
+```
+
 Это подтвердило, что данные в Docker volume сохраняются независимо от жизненного цикла контейнера.
 
-# Вывод
+## Вывод
+
 В ходе лабораторной работы были изучены основы работы с Docker.
 
 Были выполнены установка и настройка Docker Desktop, работа с образами и контейнерами, запуск nginx, управление контейнерами и работа с Docker volumes.
 
 Дополнительное задание со звёздочкой не выполнялось.
+
+### Скриншоты выполнения
 
 <img width="671" height="509" alt="image" src="https://github.com/user-attachments/assets/e7052ff3-0a0a-4e90-9bcb-4e8d7f03ff87" />
 <img width="1520" height="105" alt="image" src="https://github.com/user-attachments/assets/0e37c70c-45ef-4237-baa2-eb931f6be5bb" />
