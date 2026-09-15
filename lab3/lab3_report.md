@@ -214,6 +214,8 @@ Node Exporter использовался для сбора системных м
 
 Также была настроена общая Docker-сеть для взаимодействия контейнеров и выполнена финальная проверка их работы.
 
+<img width="1902" height="745" alt="image" src="https://github.com/user-attachments/assets/36dcc040-85f3-40e8-baa6-06ede6317dde" />
+<img width="1897" height="589" alt="image" src="https://github.com/user-attachments/assets/783f8237-3cd5-4f8c-860a-44b484acf226" />
 <img width="957" height="191" alt="image" src="https://github.com/user-attachments/assets/d784ecf5-4673-4cd1-834a-06efc616bc7c" />
 <img width="779" height="561" alt="image" src="https://github.com/user-attachments/assets/74de9ef9-c264-449c-adc1-3c66bb179585" />
 <img width="742" height="608" alt="image" src="https://github.com/user-attachments/assets/8df21099-6064-4ef6-ba21-f122a10faa8e" />
